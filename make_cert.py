@@ -7,7 +7,7 @@ import ipaddress
 import os
 
 # Folder for certificate
-FOLDER = r"C:\Users\shail\OneDrive\Desktop\ai agent"
+FOLDER = r"YOUR FILE LOCATION"
 os.chdir(FOLDER)
 
 # Generate private key
@@ -20,7 +20,7 @@ key = rsa.generate_private_key(
 subject = issuer = x509.Name([
     x509.NameAttribute(NameOID.COUNTRY_NAME, "US"),
     x509.NameAttribute(NameOID.ORGANIZATION_NAME, "Python AI Agent"),
-    x509.NameAttribute(NameOID.COMMON_NAME, "192.168.68.135"),
+    x509.NameAttribute(NameOID.COMMON_NAME, "YOUR STATIC IP"),
 ])
 
 cert = (
@@ -55,3 +55,4 @@ with open("server.crt", "wb") as f:
     f.write(cert.public_bytes(serialization.Encoding.PEM))
 
 print("New server.crt and server.key created in the folder:", FOLDER)
+
