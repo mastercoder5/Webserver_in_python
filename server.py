@@ -7,8 +7,8 @@ from urllib.parse import urlparse
 FOLDER = r"C:\Users\shail\OneDrive\Desktop\ai agent"
 os.chdir(FOLDER)
 
-IP = "192.168.68.135"
-PORT = 8000
+IP = "(Your IP)"
+PORT = 8000 #You can change the port
 
 # Mapping: clean URL -> file
 URL_MAP = {
@@ -52,3 +52,4 @@ for k, v in URL_MAP.items():
     print(f"  {k} → {v}")
 
 httpd.serve_forever()
+
