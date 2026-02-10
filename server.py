@@ -4,10 +4,10 @@ import os
 from urllib.parse import urlparse
 
 # Folder where your HTML files live
-FOLDER = r"C:\Users\shail\OneDrive\Desktop\ai agent"
+FOLDER = r"" #SET AS THE FOLDER YOU WANT TO HOST
 os.chdir(FOLDER)
 
-IP = "(Your IP)"
+IP = "" #SET AS YOUR STATIC IP
 PORT = 8000 #You can change the port
 
 # Mapping: clean URL -> file
@@ -52,4 +52,5 @@ for k, v in URL_MAP.items():
     print(f"  {k} → {v}")
 
 httpd.serve_forever()
+
 
