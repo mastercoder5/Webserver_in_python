@@ -7,7 +7,7 @@ import ipaddress
 import os
 
 # Folder for certificate
-FOLDER = r"YOUR FILE LOCATION"
+FOLDER = r"GOES HERE" #YOUR FOLDER LOCATION
 os.chdir(FOLDER)
 
 # Generate private key
@@ -33,7 +33,7 @@ cert = (
     .not_valid_after(datetime.now(timezone.utc) + timedelta(days=365))
     .add_extension(
         x509.SubjectAlternativeName([
-            x509.IPAddress(ipaddress.ip_address("192.168.68.135")),
+            x509.IPAddress(ipaddress.ip_address("192.xxx.xxx.xxx")), #YOUR STATIC IP GOES HERE
         ]),
         critical=False,
     )
@@ -55,4 +55,5 @@ with open("server.crt", "wb") as f:
     f.write(cert.public_bytes(serialization.Encoding.PEM))
 
 print("New server.crt and server.key created in the folder:", FOLDER)
+
 
