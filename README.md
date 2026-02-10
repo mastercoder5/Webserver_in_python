@@ -13,11 +13,11 @@ Fix the folder to in the `make_cert.py`
  `FOLDER = r"GOES HERE" #YOUR FOLDER LOCATION`
 Ex:
 
-`FOLDER = r"`**`/website`**`" #YOUR FOLDER LOCATION`
+`FOLDER = r"/website" #YOUR FOLDER LOCATION`
 
 Then, on this line: ` x509.IPAddress(ipaddress.ip_address("192.xxx.xxx.xxx")), #YOUR STATIC IP GOES HERE` replace it with your static ip
 
-Ex: ` x509.IPAddress(ipaddress.ip_address(`**`"192.168.68.135`**`")), #YOUR STATIC IP GOES HERE`
+Ex: ` x509.IPAddress(ipaddress.ip_address("192.168.68.135")), #YOUR STATIC IP GOES HERE`
 
 ## To host the server
 
