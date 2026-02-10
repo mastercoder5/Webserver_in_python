@@ -36,6 +36,7 @@ is if you don't want a `.html` after every file
 
 **EXAMPLE FILE STRUCTURE:**
 ![File structure](https://raw.githubusercontent.com/mastercoder5/Webserver_in_python/refs/heads/main/Sample/Screenshot%202026-02-10%20153707.png)
+
 **Whenever you want to run the server, you must run `server.py`**
 
 Outcome on my terminal:
