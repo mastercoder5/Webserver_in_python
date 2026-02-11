@@ -4,7 +4,7 @@
 
 ## To use (make a certificate):
 
-You **must** install **`mkcert`** and **`cryptography`** (for windows you can use `pip install cryptography` and `pip install mkcert`)
+You **must** install **`mkcert`** and **`cryptography`** (TO INSTALL mkcert go to (https://github.com/FiloSottile/mkcert))
 **THIS VERSION WAS ONLY TESTED ON PYTHON VERSION 3.12**
 
 After all of the dependencies have been allocated for, download `make_cert.py`
