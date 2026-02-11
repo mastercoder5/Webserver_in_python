@@ -3,14 +3,15 @@ import ssl
 import os
 from urllib.parse import urlparse
 
-# Folder where your HTML files live
-FOLDER = r"" #SET AS THE FOLDER YOU WANT TO HOST
+# ===== CONFIG =====
+FOLDER = r"" #SET AS YOUR FOLDER
+IP = "0.0.0.0"     # Listen on all interfaces
+PORT = 443        # Default HTTPS port (no :port needed) YOU CAN REPLACE IF YOU WANT
+# ==================
+
 os.chdir(FOLDER)
 
-IP = "" #SET AS YOUR STATIC IP
-PORT = 8000 #You can change the port
-
-# Mapping: clean URL -> file
+# Clean URL mapping
 URL_MAP = {
     "/": "ai.html",
     "/ai": "ai.html",
@@ -19,7 +20,6 @@ URL_MAP = {
 
 class MappedHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
-        # Strip query strings (?x=1) and fragments
         path = urlparse(self.path).path
 
         if path in URL_MAP:
@@ -27,14 +27,14 @@ class MappedHandler(SimpleHTTPRequestHandler):
 
         return super().do_GET()
 
-    # Prevent noisy favicon errors
+    # Optional: cleaner console
     def log_message(self, format, *args):
-        pass
+        print(f"[{self.client_address[0]}] {self.requestline}")
 
-
+# Create server
 httpd = HTTPServer((IP, PORT), MappedHandler)
 
-# TLS (Python 3.12 safe)
+# SSL (Python 3.12+ safe)
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 context.load_cert_chain(
     certfile="server.crt",
@@ -46,11 +46,12 @@ httpd.socket = context.wrap_socket(
     server_side=True
 )
 
-print(f"Serving HTTPS on https://{IP}:{PORT}")
-print("Routes:")
-for k, v in URL_MAP.items():
-    print(f"  {k} → {v}")
+print("===================================")
+print(" HTTPS SERVER RUNNING ")
+print("===================================")
+print("Open in browser:")
+print("  https://localhost/")
+print("  GO TO YOUR STATIC IP")
+print("===================================")
 
 httpd.serve_forever()
-
-
